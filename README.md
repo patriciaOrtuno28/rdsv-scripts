@@ -1,1 +1,8 @@
-# rdsv-scripts
+# Práctica Final RDSV
+
+### Arranque de las máquinas del escenario en K8s
+
+```
+chmod 777 initScenario.sh
+./initScenario.sh
+```
