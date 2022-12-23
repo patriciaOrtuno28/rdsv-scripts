@@ -16,10 +16,3 @@ cp ../nfv-lab/osm_renes2.sh .
 
 # Clonar el repositorio repo-rdsv con las imágenes propias
 git clone https://github.com/patriciaOrtuno28/repo-rdsv.git ~/shared/rdsv-final/repo-rdsv
-
-# Empaquetar los KNF con helm
-cd ~/shared/rdsv-final/repo-rdsv
-
-helm package helm/accesschart
-helm package helm/cpechart
-helm repo index --url https://patriciaOrtuno28.github.io/repo-rdsv/ .
