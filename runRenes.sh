@@ -33,3 +33,6 @@ echo "Fin del onboarding ..."
 echo "Definiendo el NSID1 ..."
 export NSID1=$(osm ns-create --ns_name renes1 --nsd_name renes --vim_account dummy_vim)
 echo $NSID1
+
+# Esperar a que se termine de crear el servicio renes
+watch osm ns-list
