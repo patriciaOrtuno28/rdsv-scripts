@@ -9,7 +9,27 @@ chmod 777 initScenario.sh
 
 ### Creación de la carpeta rdsv-final con los paquetes helm
 
+Con este fichero se automatiza la creación de la carpeta rdsv-final para la ejecución de esta práctica.
+
 ```
-chmod 777 initHelm.sh
-./initHelm.sh
+chmod 777 initFolder.sh
+./initFolder.sh
+```
+
+### Creación del servicio renes
+
+Con este fichero se automatizan los apartados 3, 4, 5, 7 y 9 de la práctica 4. Se crea el servicio renes1.
+
+```
+chmod 777 runRenes.sh
+./runRenes.sh
+```
+
+### Definición de pods
+
+Con este fichero se automatiza la obtención de las variables de entorno asociadas a los KNF.
+
+```
+chmod 777 handlePods.sh
+./handlePods.sh
 ```
