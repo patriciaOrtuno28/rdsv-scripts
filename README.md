@@ -7,17 +7,9 @@ chmod 777 initScenario.sh
 ./initScenario.sh
 ```
 
-### Creación de la carpeta rdsv-final con los ficheros de inicio
+### Creación de la carpeta rdsv-final con los paquetes helm
 
 ```
-chmod 777 createFolder.sh
-./createFolder.sh
+chmod 777 initHelm.sh
+./initHelm.sh
 ```
-
-### Clonar el repositorio propio
-
-```
-git clone https://github.com/patriciaOrtuno28/repo-rdsv.git ~/shared/rdsv-final
-```
-
-### Empaquetar en helm
