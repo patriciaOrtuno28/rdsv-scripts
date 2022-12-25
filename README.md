@@ -18,18 +18,22 @@ chmod 777 initFolder.sh
 
 ### Creación del servicio renes
 
-Con este fichero se automatizan los apartados 3, 4, 5, 7 y 9 de la práctica 4. Se crea el servicio renes1.
+Con este fichero se automatizan los apartados 3, 4, 5, 7 y 9 de la práctica 4.
+
+Se crean los servicios `renes1` y `renes2`.
+
+Se utiliza `source` para no perder las variables de entorno después de la ejecución del script.
 
 ```
 chmod 777 runRenes.sh
-./runRenes.sh
+source ./runRenes.sh
 ```
 
-### Definición de pods
+### Configuración del servicio renes
 
-Con este fichero se automatiza la obtención de las variables de entorno asociadas a los KNF.
+Con este fichero se automatiza la puesta en marcha de los servicios `renes1` y `renes2`, para dar conectividad a ambas redes residenciales.
 
 ```
-chmod 777 handlePods.sh
-./handlePods.sh
+chmod 777 configRenes.sh
+./configRenes.sh
 ```
