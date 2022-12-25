@@ -2,9 +2,18 @@
 
 ### Arranque de las máquinas del escenario en K8s
 
+Con este fichero se automatiza el arranque de las máquinas en K8s:
+
 ```
 chmod 777 initScenario.sh
 ./initScenario.sh
+```
+
+Con este fichero se automatiza la destrucción de las máquinas en K8s:
+
+```
+chmod 777 stopScenario.sh
+./stopScenario.sh
 ```
 
 ### Creación de la carpeta rdsv-final con los paquetes helm
