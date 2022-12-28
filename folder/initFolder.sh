@@ -12,7 +12,7 @@ cp -r ../nfv-lab/vnx/ .
 cp ../nfv-lab/renes_start.sh .
 cp ../nfv-lab/osm_renes_start.sh .
 cp ../nfv-lab/osm_renes1.sh .
-cp ../nfv-lab/osm_renes2.sh .
+cp ../rdsv-scripts/osm_renes2.sh .
 
 # Clonar el repositorio repo-rdsv con las imágenes propias
 git -C ~/shared/rdsv-final/repo-rdsv pull || git clone https://github.com/patriciaOrtuno28/repo-rdsv.git ~/shared/rdsv-final/repo-rdsv
