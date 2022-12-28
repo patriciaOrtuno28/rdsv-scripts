@@ -1,5 +1,9 @@
 #!/bin/bash
 
+# Crear la carpeta de la P4 para obtener sus ficheros
+cd ~/shared
+git clone https://github.com/educaredes/nfv-lab.git
+
 # Crear la carpeta base rdsv-final con los ficheros requeridos
 mkdir -p ~/shared/rdsv-final
 cd ~/shared/rdsv-final
