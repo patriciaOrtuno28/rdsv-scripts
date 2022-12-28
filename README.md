@@ -1,5 +1,7 @@
 # Práctica Final RDSV
 
+Clonar este repositorio en la carpeta ~/shared de la máquina K8s y OSM.
+
 ### Arranque de las máquinas del escenario en K8s
 
 Con este fichero se automatiza el arranque de las máquinas en K8s:
@@ -34,15 +36,22 @@ Se crean los servicios `renes1` y `renes2`.
 Se utiliza `source` para no perder las variables de entorno después de la ejecución del script.
 
 ```
-chmod 777 renes/runRenes.sh
-source ./renes/runRenes.sh
+chmod 777 renes/createRenes.sh
+source ./renes/createRenes.sh
 ```
 
-### Configuración del servicio renes
+### Inicio del servicio renes para dar conectividad a las redes residenciales
 
 Con este fichero se automatiza la puesta en marcha de los servicios `renes1` y `renes2`, para dar conectividad a ambas redes residenciales.
 
 ```
-chmod 777 renes/configRenes.sh
-./renes/configRenes.sh
+chmod 777 renes/runRenes.sh
+./renes/runRenes.sh
+```
+
+### (Opcional) Destruir los servicios renes y sus pods
+
+```
+chmod 777 renes/destroyRenes.sh
+./renes/destroyRenes.sh
 ```
