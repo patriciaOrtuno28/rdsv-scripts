@@ -12,4 +12,4 @@ ACCPOD=${AUXACC:0:53}
 echo $ACCPOD
 
 # Enseñar vxlanacc
-kubectl -n $OSMNS exec -it $ACCPOD -- /bin/bash
+kubectl -n $OSMNS exec -it $CPEPOD -- /bin/bash
