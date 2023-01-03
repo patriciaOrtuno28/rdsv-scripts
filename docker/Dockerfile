@@ -33,8 +33,9 @@ COPY captureArp.sh .
 COPY initOpenFlow.sh .
 COPY ryu/ .
 
-RUN chmod +x captureArp.sh
-RUN chmod +x initOpenFlow.sh
+WORKDIR .
+RUN chmod 775 captureArp.sh
+RUN chmod 775 initOpenFlow.sh
 
 RUN cd ryu 
 RUN pip install .
