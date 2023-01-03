@@ -29,4 +29,5 @@ COPY isc-dhcp-server /etc/default/isc-dhcp-server
 COPY dhcpd.conf /etc/dhcp/dhcpd.conf 
 
 COPY README.txt .
+COPY qos_simple_switch_13.py .
 COPY captureArp.sh .
