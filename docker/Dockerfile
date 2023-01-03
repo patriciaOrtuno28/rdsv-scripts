@@ -28,8 +28,6 @@ COPY vnx_config_nat /usr/bin/
 COPY isc-dhcp-server /etc/default/isc-dhcp-server
 COPY dhcpd.conf /etc/dhcp/dhcpd.conf 
 
-RUN git submodule update --init
-
 COPY README.txt .
 COPY captureArp.sh .
 COPY initOpenFlow.sh .
