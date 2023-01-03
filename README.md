@@ -2,6 +2,19 @@
 
 Clonar este repositorio en la carpeta ~/shared de la máquina K8s y OSM.
 
+## Común
+
+### Creación de la carpeta rdsv-final
+
+Con este fichero se automatiza la creación de la carpeta rdsv-final para la ejecución de esta práctica.
+
+```
+chmod 777 folder/initFolder.sh
+./folder/initFolder.sh
+```
+
+## K8S
+
 ### Arranque de las máquinas del escenario en K8s
 
 Con este fichero se automatiza el arranque de las máquinas en K8s:
@@ -18,14 +31,7 @@ chmod 777 scenario/stopScenario.sh
 ./scenario/stopScenario.sh
 ```
 
-### Creación de la carpeta rdsv-final con los paquetes helm
-
-Con este fichero se automatiza la creación de la carpeta rdsv-final para la ejecución de esta práctica.
-
-```
-chmod 777 folder/initFolder.sh
-./folder/initFolder.sh
-```
+## OSM
 
 ### Creación del servicio renes
 
