@@ -14,7 +14,7 @@ sed '/OFPFlowMod(/,/)/s/)/, table_id=1)/' ryu/ryu/app/simple_switch_13.py > ryu/
 
 # Instalar dependencias
 echo "Instalando dependencias ..."
-cd ryu/; python ./setup.py install
+cd ryu/; python3 ./setup.py install
 cd ..
 
 # Para ejecutar la aplicacion Ryu:
@@ -37,6 +37,8 @@ curl -X PUT -d '"tcp:127.0.0.1:6632"' http://localhost:8080/v1.0/conf/switches/0
 # Cola 1 - hx2 : máximo 4 Mbps
 curl -X POST -d '{"port_name": "vxlanacc", "type": "linux-htb", "max_rate": "12000000", "queues": [{"min_rate": "8000000"}, {"max_rate": "4000000"}]}' http://localhost:8080/qos/queue/0000000000000001
 
-# # Comprobar que la miss flow entry inicial se ha incluido a brint:
-# echo "Tabla de flujos del bridge brint final ..."
-# ovs-ofctl -O OpenFlow13 dump-flows brint
+# Definir a que cola pertenece cada tráfico
+# eth1 : hx1
+# eth2: hx2
+curl -X POST -d '{"match": {"nw_dst": "192.168.255.21"}, "actions":{"queue": "0"}}' http://localhost:8080/qos/rules/0000000000000001
+curl -X POST -d '{"match": {"nw_dst": "192.168.255.20"}, "actions":{"queue": "1"}}' http://localhost:8080/qos/rules/0000000000000001
