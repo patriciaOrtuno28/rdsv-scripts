@@ -29,10 +29,13 @@ COPY isc-dhcp-server /etc/default/isc-dhcp-server
 COPY dhcpd.conf /etc/dhcp/dhcpd.conf 
 
 COPY README.txt .
-COPY qos_simple_switch_13.py .
 COPY captureArp.sh .
 COPY initOpenFlow.sh .
+COPY ryu/ .
 
 RUN chmod +x captureArp.sh
-RUN chmod +x qos_simple_switch_13.py
 RUN chmod +x initOpenFlow.sh
+
+RUN cd ryu 
+RUN pip install .
+RUN cd ..
