@@ -13,7 +13,7 @@ if [[ $renes == "1" ]]
 then 
     echo "Deleting renes1 ..."
     osm ns-delete renes1
-elif [[ $username == "2" ]]
+elif [[ $renes == "2" ]]
 then
     echo "Deleting renes2 ..."
     osm ns-delete renes2
