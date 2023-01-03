@@ -31,12 +31,4 @@ COPY dhcpd.conf /etc/dhcp/dhcpd.conf
 COPY README.txt .
 COPY captureArp.sh .
 COPY initOpenFlow.sh .
-COPY ryu/ .
-
-WORKDIR .
-RUN chmod 775 captureArp.sh
-RUN chmod 775 initOpenFlow.sh
-
-RUN cd ryu 
-RUN pip install .
-RUN cd ..
+ADD ryu/ .

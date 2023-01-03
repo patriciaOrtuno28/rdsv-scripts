@@ -1,5 +1,11 @@
 #!/bin/bash
 
+# Instalar dependencias necesarias
+echo "Instalando dependencias ..."
+cd ryu/
+pip install .
+cd ..
+
 # Para activar OpenFlow version 1.3 en el bridge brint, porque sino se pone por defecto la v1.0:
 echo "Definiendo version OpenFlow 1.3 ..."
 ovs-vsctl set Bridge brint protocols=OpenFlow13

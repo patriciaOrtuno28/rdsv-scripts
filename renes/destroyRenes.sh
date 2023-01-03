@@ -12,15 +12,15 @@ done
 if [[ $renes == "1" ]]
 then 
     echo "Deleting renes1 ..."
-    osm ns-delete renes1
+    osm ns-delete $NSID1
 elif [[ $renes == "2" ]]
 then
     echo "Deleting renes2 ..."
-    osm ns-delete renes2
+    osm ns-delete $NSID2
 else
     echo "Deleting renes1 and renes2 ..."
-    osm ns-delete renes1
-    osm ns-delete renes2
+    osm ns-delete $NSID1
+    osm ns-delete $NSID1
 fi
 
 # echo "Deleting pods ..."
