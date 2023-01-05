@@ -31,4 +31,4 @@ COPY dhcpd.conf /etc/dhcp/dhcpd.conf
 COPY README.txt .
 COPY captureArp.sh .
 COPY initOpenFlow.sh .
-COPY ryu ryu/
+COPY ryu/ ryu/
