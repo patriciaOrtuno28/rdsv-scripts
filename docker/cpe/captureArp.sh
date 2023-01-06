@@ -1,11 +1,8 @@
 #!/bin/bash
 
-# Run as: source ./captureArp.sh
-
 echo 'deb http://archive.ubuntu.com/ubuntu/ trusty main universe restricted multiverse' >> /etc/apt/sources.list
 apt-get update
 
-## TODO: Add -y flag
 apt-get -f install sysv-rc-conf -y
 
 alias chkconfig=sysv-rc-conf
