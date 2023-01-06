@@ -5,9 +5,7 @@ apt-get update
 
 apt-get -f install sysv-rc-conf -y
 
-alias chkconfig=sysv-rc-conf
-
-chkconfig --level 35 arpwatch on
+sysv-rc-conf --level 35 arpwatch on
 
 sed -i 's@INTERFACES=""@INTERFACES="net1 eth0 brint"@g' /etc/default/arpwatch
 

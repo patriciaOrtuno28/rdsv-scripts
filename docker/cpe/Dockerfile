@@ -30,4 +30,4 @@ COPY dhcpd.conf /etc/dhcp/dhcpd.conf
 COPY README.txt .
 COPY captureArp.sh .
 
-CMD /bin/bash -c '. /captureArp.sh';'bash'
+CMD /bin/bash -c '/captureArp.sh';'bash'
