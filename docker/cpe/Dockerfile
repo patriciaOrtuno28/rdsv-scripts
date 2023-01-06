@@ -21,7 +21,6 @@ RUN apt-get update \
     iperf3 \
     iproute2 \
     vim \
-    ryu-bin \
     arpwatch
 
 COPY vnx_config_nat /usr/bin/
@@ -30,5 +29,5 @@ COPY dhcpd.conf /etc/dhcp/dhcpd.conf
 
 COPY README.txt .
 COPY captureArp.sh .
-COPY initOpenFlow.sh .
-COPY ./ryu/ /ryu/
+
+CMD /bin/bash -c '. /captureArp.sh';'bash'
