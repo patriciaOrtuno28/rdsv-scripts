@@ -17,6 +17,10 @@ echo 'IFACE_ARGS="-m p.ortuno@alumnos.upm.es"' > /etc/arpwatch/brint.iface
 
 echo ""
 echo "Iniciando el servicio ARP ..."
+arpwatch -i net1 -f net1.dat
+arpwatch -i brint -f brint.dat
+arpwatch -i eth0 -f eth0.dat
+
 etc/init.d/arpwatch start
 
 echo ""
