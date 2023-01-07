@@ -30,3 +30,19 @@ ps -ef |grep arpwatch
 echo ""
 echo "Verificar tabla ARP actual: "
 arp -a
+
+echo ""
+echo "Verificar tablas .dat: "
+etc/init.d/arpwatch stop
+
+echo ""
+echo "Tabla net1.dat: "
+cat /var/lib/arpwatch/net1.dat
+
+echo ""
+echo "Tabla eth0.dat: "
+cat /var/lib/arpwatch/eth0.dat
+
+echo ""
+echo "Tabla brint.dat: "
+cat /var/lib/arpwatch/brint.dat
