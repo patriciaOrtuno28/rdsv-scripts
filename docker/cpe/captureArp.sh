@@ -46,3 +46,5 @@ cat /var/lib/arpwatch/eth0.dat
 echo ""
 echo "Tabla brint.dat: "
 cat /var/lib/arpwatch/brint.dat
+
+etc/init.d/arpwatch start
