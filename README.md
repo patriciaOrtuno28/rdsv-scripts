@@ -4,7 +4,7 @@ Clonar este repositorio en la carpeta ~/shared de la máquina K8s y OSM.
 
 >__Note__ Si algún script no tiene permisos de ejecución hacer `chmod 775 <script>`
 
-## Común
+## K8S
 
 ### Creación de la carpeta rdsv-final
 
@@ -13,8 +13,6 @@ Con este fichero se automatiza la creación de la carpeta rdsv-final para la eje
 ```
 ./folder/initFolder.sh
 ```
-
-## K8S
 
 ### Arranque de las máquinas del escenario en K8s
 
@@ -48,6 +46,14 @@ Con este fichero se ponen las hx1 y hx2 en los ficheros de ejecución de renes p
 
 ```
 ./folder/includeIps.sh -a <h11> -b <h12> -c <h21> -d <h22>
+```
+
+### Creación de la carpeta rdsv-final
+
+Con este fichero se automatiza la creación de la carpeta rdsv-final para la ejecución de esta práctica.
+
+```
+./folder/initFolder.sh
 ```
 
 ### Creación del servicio renes
