@@ -16,9 +16,9 @@ then
 else
     # Modify osm_renes1.sh
     echo "Incluyendo $h11 y $h12 a osm_renes1.sh ..."
-    sed '/^osm_renes_start.*/i export HX1=$h11\nexport HX2=$h12' ~/shared/rdsv-scripts/folder/osm_renes1.sh
+    sed '/osm_renes_start/i export HX1=$h11\nexport HX2=$h12' -i ~/shared/rdsv-scripts/folder/osm_renes1.sh
 
     # Modify osm_renes2.sh
     echo "Incluyendo $h21 y $h22 a osm_renes1.sh ..."
-    sed '/^osm_renes_start.*/i export HX1=$h21\nexport HX2=$h22' ~/shared/rdsv-scripts/folder/osm_renes2.sh
+    sed '/osm_renes_start/i export HX1=$h21\nexport HX2=$h22' -i ~/shared/rdsv-scripts/folder/osm_renes2.sh
 fi
