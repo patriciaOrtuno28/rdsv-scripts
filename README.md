@@ -18,13 +18,21 @@ Con este fichero se automatiza la creación de la carpeta rdsv-final para la eje
 
 ### Arranque de las máquinas del escenario en K8s
 
-Con este fichero se automatiza el arranque de las máquinas en K8s:
+Con este fichero se automatiza el arranque de las máquinas en K8s asegurando que tienen una ip asignada:
 
 ```
 ./scenario/initScenario.sh
 ```
 
-Con este fichero se automatiza la destrucción de las máquinas en K8s:
+Con este fichero se automatiza la obtención de las ips de las máquinas de la red residencial:
+
+```
+./scenario/getIps.sh
+```
+
+Se deben anotar para su posterior uso.
+
+#### (Opcional) Destrucción de las máquinas del escenario en K8s
 
 ```
 ./scenario/stopScenario.sh
@@ -52,7 +60,7 @@ Con este fichero se automatiza la puesta en marcha de los servicios `renes1` y `
 ./renes/runRenes.sh
 ```
 
-### (Opcional) Acceder a los pods
+#### (Opcional) Acceder a los pods
 
 >__Note__ Sustituir <type> por el tipo del pod al que se desee acceder {access, cpe}
 
@@ -60,7 +68,7 @@ Con este fichero se automatiza la puesta en marcha de los servicios `renes1` y `
 ./renes/handlePods.sh -p <type>
 ```
 
-### (Opcional) Destruir los servicios renes y sus pods
+#### (Opcional) Destruir los servicios renes y sus pods
 
 >__Note__ Sustituir <id> por el identificador renes que se desee destruir {1, 2}
 
