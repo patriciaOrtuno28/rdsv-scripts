@@ -30,7 +30,7 @@ Con este fichero se automatiza la obtención de las ips de las máquinas de la r
 ./scenario/getIps.sh
 ```
 
-Se deben anotar para su posterior uso.
+Se deben anotar para su posterior uso en el servicio OSM.
 
 #### (Opcional) Destrucción de las máquinas del escenario en K8s
 
@@ -39,6 +39,16 @@ Se deben anotar para su posterior uso.
 ```
 
 ## OSM
+
+### Definición de IPs de las redes residenciales
+
+Con este fichero se ponen las hx1 y hx2 en los ficheros de ejecución de renes para su posterior uso en la definición del QoS.
+
+>__Note__ Debe introducir las IPs obtenidas gracias al script `getIps.sh` ejecutado en K8s.
+
+```
+./folder/includeIps.sh -a <h11> -b <h12> -c <h21> -d <h22>
+```
 
 ### Creación del servicio renes
 
