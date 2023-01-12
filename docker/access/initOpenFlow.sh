@@ -11,8 +11,10 @@ echo "Definiendo version OpenFlow 1.3 ..."
 ovs-vsctl set Bridge brint protocols=OpenFlow13
 
 # Definir el puerto del manager de OpenFlow:
-echo "Definiendo el puerto ptcp:6632 para el manager ..."
+echo "Definiendo propiedades del controller ..."
 ovs-vsctl set-manager ptcp:6632
+ovs-vsctl set-controller brint tcp:127.0.0.1:6633
+ovs-vsctl set bridge brint other-config:datapath-id=0000000000000001
 
 # Crear qos_simple_switch_13.py
 echo "Creando qos_simple_switch_13.py ..."
@@ -29,13 +31,14 @@ ryu-manager ryu/ryu/app/rest_qos.py ryu/ryu/app/qos_simple_switch_13.py ryu/ryu/
 
 # Terminates the program (like Ctrl+C)
 PID=$!
-sleep 2
+sleep 5
 kill -INT $PID
 
 # KNF access -> brgX : 12 Mbps bajada
 # brgX -> KNF access : 6 Mbps subida
 # Definir la ruta del manager
 curl -X PUT -d '"tcp:127.0.0.1:6632"' http://localhost:8080/v1.0/conf/switches/0000000000000001/ovsdb_addr
+sleep 2
 
 # Crear una cola con QoS
 # 12 Mbps como máximo para el enlace

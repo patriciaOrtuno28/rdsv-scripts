@@ -1,12 +1,5 @@
 #!/bin/bash
 
-echo "Run on brint interface ..."
-arpwatch -i brint -f brint.dat
-
-echo "Start arpwatch ..."
-etc/init.d/arpwatch start
-etc/init.d/arpwatch status
-
 echo ""
 echo "Verificando proceso ARP en ejecucion ..."
 ps -ef |grep arpwatch
@@ -18,6 +11,7 @@ arp -a
 echo ""
 echo "Verificar tablas .dat: "
 etc/init.d/arpwatch stop
+sleep 2
 
 echo ""
 echo "Tabla brint.dat: "

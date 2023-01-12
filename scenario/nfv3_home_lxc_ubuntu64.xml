@@ -51,6 +51,12 @@ SPAIN
        ifconfig eth1 mtu 1380
        sed -i -e '/iface eth1 inet static/a \   mtu 1380' /etc/network/interfaces
     </exec>
+    <exec seq="dhclient_h11" type="verbatim">
+      dhclient
+    </exec>
+    <exec seq="retrieve_ip_h11" type="verbatim">
+      ifconfig | grep 192.168.255
+    </exec>
     <route type="ipv4" gw="192.168.255.1">0.0.0.0/0</route>
   </vm>   
   <vm name="h12" type="lxc" exec_mode="lxc-attach" arch="x86_64">
@@ -62,6 +68,12 @@ SPAIN
        # Change interface MTU
        ifconfig eth1 mtu 1380
        sed -i -e '/iface eth1 inet static/a \   mtu 1380' /etc/network/interfaces
+    </exec>
+    <exec seq="dhclient_h12" type="verbatim">
+      dhclient
+    </exec>
+    <exec seq="retrieve_ip_h12" type="verbatim">
+      ifconfig | grep 192.168.255
     </exec>
     <route type="ipv4" gw="192.168.255.1">0.0.0.0/0</route>
   </vm> 
@@ -90,6 +102,12 @@ SPAIN
        ifconfig eth1 mtu 1380
        sed -i -e '/iface eth1 inet static/a \   mtu 1380' /etc/network/interfaces
     </exec>
+    <exec seq="dhclient_h21" type="verbatim">
+      dhclient
+    </exec>
+    <exec seq="retrieve_ip_h21" type="verbatim">
+      ifconfig | grep 192.168.255
+    </exec>
   </vm>   
   <vm name="h22" type="lxc" exec_mode="lxc-attach" arch="x86_64">
     <filesystem type="cow">/usr/share/vnx/filesystems/rootfs_lxc_ubuntu64</filesystem>
@@ -100,6 +118,12 @@ SPAIN
        # Change interface MTU
        ifconfig eth1 mtu 1380
        sed -i -e '/iface eth1 inet static/a \   mtu 1380' /etc/network/interfaces
+    </exec>
+    <exec seq="dhclient_h22" type="verbatim">
+      dhclient
+    </exec>
+    <exec seq="retrieve_ip_h22" type="verbatim">
+      ifconfig | grep 192.168.255
     </exec>
   </vm> 
   <vm name="brg2" type="lxc" exec_mode="lxc-attach" arch="x86_64">
