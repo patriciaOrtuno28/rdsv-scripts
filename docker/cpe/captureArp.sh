@@ -1,27 +1,11 @@
 #!/bin/bash
 
-echo 'deb http://archive.ubuntu.com/ubuntu/ trusty main universe restricted multiverse' >> /etc/apt/sources.list
-apt-get update
-
-apt-get -f install sysv-rc-conf -y
-
-sysv-rc-conf --level 35 arpwatch on
-
-sed -i 's@INTERFACES=""@INTERFACES="net1 eth0 brint"@g' /etc/default/arpwatch
-
-echo ""
-echo "Configurando la direccion de correo electronico ..."
-echo 'IFACE_ARGS="-m p.ortuno@alumnos.upm.es"' > /etc/arpwatch/net1.iface
-echo 'IFACE_ARGS="-m p.ortuno@alumnos.upm.es"' > /etc/arpwatch/eth0.iface
-echo 'IFACE_ARGS="-m p.ortuno@alumnos.upm.es"' > /etc/arpwatch/brint.iface
-
-echo ""
-echo "Iniciando el servicio ARP ..."
-arpwatch -i net1 -f net1.dat
+echo "Run on brint interface ..."
 arpwatch -i brint -f brint.dat
-arpwatch -i eth0 -f eth0.dat
 
+echo "Start arpwatch ..."
 etc/init.d/arpwatch start
+etc/init.d/arpwatch status
 
 echo ""
 echo "Verificando proceso ARP en ejecucion ..."
@@ -36,15 +20,8 @@ echo "Verificar tablas .dat: "
 etc/init.d/arpwatch stop
 
 echo ""
-echo "Tabla net1.dat: "
-cat /var/lib/arpwatch/net1.dat
-
-echo ""
-echo "Tabla eth0.dat: "
-cat /var/lib/arpwatch/eth0.dat
-
-echo ""
 echo "Tabla brint.dat: "
 cat /var/lib/arpwatch/brint.dat
 
 etc/init.d/arpwatch start
+etc/init.d/arpwatch status

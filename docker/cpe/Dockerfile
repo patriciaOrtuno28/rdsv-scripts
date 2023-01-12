@@ -30,4 +30,12 @@ COPY dhcpd.conf /etc/dhcp/dhcpd.conf
 COPY README.txt .
 COPY captureArp.sh .
 
-CMD /bin/bash -c '/captureArp.sh';'bash'
+RUN echo 'deb http://archive.ubuntu.com/ubuntu/ trusty main universe restricted multiverse' >> /etc/apt/sources.list
+
+RUN apt-get update
+RUN apt-get -f install sysv-rc-conf -y
+RUN sysv-rc-conf --level 35 arpwatch on
+
+RUN sed -i 's@INTERFACES=""@INTERFACES="brint"@g' /etc/default/arpwatch
+
+RUN echo 'IFACE_ARGS="-m p.ortuno@alumnos.upm.es"' > /etc/arpwatch/brint.iface
