@@ -9,6 +9,7 @@ do
 done
 
 if [[ $hx1 == "" ]] || [[ $hx2 == "" ]]
+then
     echo "Se deben definir las IPs de la red residencial"
 else
     # Instalar dependencias necesarias

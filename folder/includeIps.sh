@@ -11,6 +11,7 @@ do
 done
 
 if [[ $h11 == "" ]] || [[ $h12 == "" ]] || [[ $h21 == "" ]] || [[ $h22 == "" ]]
+then
     echo "Se deben definir las IPs de las redes residenciales"
 else
     # Modify osm_renes1.sh
