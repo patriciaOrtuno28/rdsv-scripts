@@ -59,6 +59,6 @@ else
     curl -X POST -d '{"port_name": "vxlanacc", "type": "linux-htb", "max_rate": "12000000", "queues": [{"min_rate": "8000000"}, {"max_rate": "4000000"}]}' http://localhost:8080/qos/queue/0000000000000001
 
     # Definir a que cola pertenece cada tráfico
-    curl -X POST -d '{"match": {"nw_dst": $hx1}, "actions":{"queue": "0"}}' http://localhost:8080/qos/rules/0000000000000001
-    curl -X POST -d '{"match": {"nw_dst": $hx2}, "actions":{"queue": "1"}}' http://localhost:8080/qos/rules/0000000000000001
+    curl -X POST -d '{"match": {"nw_dst": '$hx1'}, "actions":{"queue": "0"}}' http://localhost:8080/qos/rules/0000000000000001
+    curl -X POST -d '{"match": {"nw_dst": '$hx2'}, "actions":{"queue": "1"}}' http://localhost:8080/qos/rules/0000000000000001
 fi
