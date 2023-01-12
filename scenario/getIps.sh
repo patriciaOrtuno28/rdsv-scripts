@@ -1,5 +1,7 @@
 #!/bin/bash
 
+cd /home/upm/shared/rdsv-final
+
 echo "IP h11: "
 sudo vnx -f vnx/nfv3_home_lxc_ubuntu64.xml -x retrieve_ip_h11 | grep 192.168.255
 
