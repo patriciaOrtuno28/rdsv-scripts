@@ -1,6 +1,6 @@
 #!/bin/bash
 
-while getopts a:b:c:d flag
+while getopts a:b:c:d: flag
 do
     case "${flag}" in
         a) h11=${OPTARG};;
