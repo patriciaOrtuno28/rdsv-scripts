@@ -19,8 +19,6 @@ set -u # to verify variables are defined
 : $VNFTUNIP
 : $VCPEPUBIP
 : $VCPEGW
-: $HX1
-: $HX2
 
 if [[ ! $VACC =~ "helmchartrepo-accesschart"  ]]; then
     echo ""       
@@ -94,7 +92,3 @@ $CPE_EXEC /usr/bin/vnx_config_nat brint net1
 echo "## 7. En VNF:cpe activar arpwatch en la interfaz brint"
 $CPE_EXEC arpwatch -i brint -f brint.dat
 $CPE_EXEC etc/init.d/arpwatch start
-
-## 8. En VNF:access iniciar OpenFlow
-echo "## 8. en VNF:access iniciar OpenFlow"
-$ACC_EXEC ./initOpenFlow.sh -a $HX1 -b $HX2
