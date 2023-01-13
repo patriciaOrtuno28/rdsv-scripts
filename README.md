@@ -20,12 +20,6 @@ Con este fichero se automatiza el arranque de las máquinas en K8s:
 ./scenario/initScenario.sh
 ```
 
-Con este fichero se automatiza la obtención de las ips de las máquinas de la red residencial:
-
-```
-./scenario/getIps.sh
-```
-
 > Se deben anotar para su posterior uso en el servicio OSM.
 
 :warning: **(Opcional)** Destrucción de las máquinas del escenario en K8s
@@ -58,10 +52,10 @@ Con este fichero se automatiza la puesta en marcha de los servicios `renes1` y `
 
 ### 3. Asegurarse de que las IPs se han definido ``` K8s ```
 
-Con este fichero se automatiza la ejecución de `dhclient` en las hx1 y hx2 de las redes residenciales:
+Con este fichero se automatiza la ejecución de `dhclient` en las hx1 y hx2 de las redes residenciales, para su posterior obtención:
 
 ```
-./scenario/setIps.sh
+./scenario/getIps.sh
 ```
 
 ### 4. Definir IPs para OpenFlow ``` OSM ```
@@ -71,7 +65,7 @@ Con este fichero se asegura que los clientes de las redes residenciales tienen a
 >__Note__ Debe introducir las IPs obtenidas gracias al script `getIps.sh` ejecutado en K8s.
 
 ```
-./folder/includeIps.sh -a <h11> -b <h12> -c <h21> -d <h22>
+./folder/configureOpenFlow.sh -a <h11> -b <h12> -c <h21> -d <h22>
 ```
 
 :heavy_plus_sign: **(Opcional)** Acceder a los pods: sustituir <type> por el tipo del pod al que se desee acceder {access, cpe}
