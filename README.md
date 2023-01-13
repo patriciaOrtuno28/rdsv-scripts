@@ -34,7 +34,13 @@ Con este fichero se automatiza la obtención de las ips de las máquinas de la r
 ./scenario/stopScenario.sh
 ```
 
-### 2. Definición de IPs de las redes residenciales ``` OSM ```
+### 2. Dar conectividad a las redes residenciales ``` OSM ```
+
+Con este fichero se automatiza la creación de la carpeta rdsv-final para la ejecución de esta práctica.
+
+```
+./folder/initFolder.sh
+```
 
 Con este fichero se crean de forma automatizada los servicios `renes1` y `renes2` junto con el onboarding.
 
@@ -44,11 +50,21 @@ Se utiliza `source` para no perder las variables de entorno después de la ejecu
 source ./renes/createRenes.sh
 ```
 
-Con este fichero se automatiza la puesta en marcha de los servicios `renes1` y `renes2`, para dar conectividad a ambas redes residenciales.
+Con este fichero se automatiza la puesta en marcha de los servicios `renes1` y `renes2`, para dar conectividad a ambas redes residenciales. Adicionalmente, se inicia el servicio arpwatch en el CPE.
 
 ```
 ./renes/runRenes.sh
 ```
+
+### 3. Asegurarse de que las IPs se han definido ``` K8s ```
+
+Con este fichero se automatiza la ejecución de `dhclient` en las hx1 y hx2 de las redes residenciales:
+
+```
+./scenario/setIps.sh
+```
+
+### 4. Definir IPs para OpenFlow ``` OSM ```
 
 Con este fichero se asegura que los clientes de las redes residenciales tienen asignada una IP en su eth1, y se ponen las hx1 y hx2 en los ficheros de ejecución de renes para su posterior uso en la definición del QoS.
 
@@ -56,12 +72,6 @@ Con este fichero se asegura que los clientes de las redes residenciales tienen a
 
 ```
 ./folder/includeIps.sh -a <h11> -b <h12> -c <h21> -d <h22>
-```
-
-Con este fichero se automatiza la creación de la carpeta rdsv-final para la ejecución de esta práctica.
-
-```
-./folder/initFolder.sh
 ```
 
 :heavy_plus_sign: **(Opcional)** Acceder a los pods: sustituir <type> por el tipo del pod al que se desee acceder {access, cpe}
