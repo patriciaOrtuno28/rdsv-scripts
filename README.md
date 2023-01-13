@@ -20,8 +20,6 @@ Con este fichero se automatiza el arranque de las máquinas en K8s:
 ./kubernetes/initScenario.sh
 ```
 
-> Se deben anotar para su posterior uso en el servicio OSM.
-
 :warning: **(Opcional)** Destrucción de las máquinas del escenario en K8s
 
 ```
@@ -57,6 +55,8 @@ Con este fichero se automatiza la ejecución de `dhclient` en las hx1 y hx2 de l
 ```
 ./kubernetes/getIps.sh
 ```
+
+> Se deben anotar para su posterior uso en el servicio OSM.
 
 ### 4. Definir IPs para OpenFlow ``` OSM ```
 
