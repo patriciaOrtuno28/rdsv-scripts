@@ -28,7 +28,7 @@ else
         exit 1
     fi
     ACC_EXEC_1="kubectl exec -n $OSMNS $VACC1 --"
-    $ACC_EXEC_1 ./initOpenFlow.sh -a $h11 -b $h12
+    $ACC_EXEC_1 ./initOpenFlow.sh -a $h11 -b $h12 &
 
     # OpenFlow for renes2
     echo "Iniciando OpenFlow en renes2 ..."
@@ -40,5 +40,5 @@ else
         exit 1
     fi
     ACC_EXEC_2="kubectl exec -n $OSMNS $VACC2 --"
-    $ACC_EXEC_2 ./initOpenFlow.sh -a $h21 -b $h22
+    $ACC_EXEC_2 ./initOpenFlow.sh -a $h21 -b $h22 &
 fi
