@@ -80,8 +80,8 @@ Con este fichero se asegura que los clientes de las redes residenciales tienen a
 ./osm/handlePods.sh -p <type>
 ```
 
-:warning: **(Opcional)** Destruir los servicios renes y sus pods: sustituir <id> por el identificador renes que se desee destruir {1, 2}
+:warning: **(Opcional)** Destruir los servicios renes, sus pods y el onboarding asociado
 
 ```
-./osm/destroyRenes.sh -r <id>
+./osm/destroyRenes.sh
 ```
