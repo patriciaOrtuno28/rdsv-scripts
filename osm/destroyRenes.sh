@@ -6,7 +6,7 @@ osm repo-delete helmchartrepo
 
 echo "Borrando renes1 y renes2 ..."
 osm ns-delete $NSID1
-osm ns-delete $NSID1
+osm ns-delete $NSID2
 
 sleep 25
 
