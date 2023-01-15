@@ -8,12 +8,12 @@ echo "Borrando renes1 y renes2 ..."
 osm ns-delete $NSID1
 osm ns-delete $NSID1
 
-sleep 30
+sleep 25
 
 echo "Borrando el NS Package ..."
 osm nspkg-delete renes
 
-sleep 5
+sleep 1
 
 echo "Borrando los VNF Package ..."
 osm nfpkg-delete accessknf
