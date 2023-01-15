@@ -58,7 +58,7 @@ SPAIN
       ifconfig | grep 192.168.255
     </exec>
     <exec seq="iperf3_h11" type="verbatim">
-      sudo apt -y install iperf3
+      sudo apt -y install iperf3 --fix-missing
     </exec>
     <route type="ipv4" gw="192.168.255.1">0.0.0.0/0</route>
   </vm>   
@@ -79,7 +79,7 @@ SPAIN
       ifconfig | grep 192.168.255
     </exec>
     <exec seq="iperf3_h12" type="verbatim">
-      sudo apt -y install iperf3
+      sudo apt -y install iperf3 --fix-missing
     </exec>
     <route type="ipv4" gw="192.168.255.1">0.0.0.0/0</route>
   </vm> 
@@ -98,7 +98,7 @@ SPAIN
         ovs-vsctl add-port br0 vxlan1 -- set interface vxlan1 type=vxlan options:remote_ip=10.255.0.1
     </exec>
     <exec seq="iperf3_brg1" type="verbatim">
-      sudo apt -y install iperf3
+      sudo apt -y install iperf3 --fix-missing
     </exec>
   </vm>
   <vm name="h21" type="lxc" exec_mode="lxc-attach" arch="x86_64">
@@ -118,7 +118,7 @@ SPAIN
       ifconfig | grep 192.168.255
     </exec>
     <exec seq="iperf3_h21" type="verbatim">
-      sudo apt -y install iperf3
+      sudo apt -y install iperf3 --fix-missing
     </exec>
   </vm>   
   <vm name="h22" type="lxc" exec_mode="lxc-attach" arch="x86_64">
@@ -138,7 +138,7 @@ SPAIN
       ifconfig | grep 192.168.255
     </exec>
     <exec seq="iperf3_h22" type="verbatim">
-      sudo apt -y install iperf3
+      sudo apt -y install iperf3 --fix-missing
     </exec>
   </vm> 
   <vm name="brg2" type="lxc" exec_mode="lxc-attach" arch="x86_64">
@@ -156,7 +156,7 @@ SPAIN
         ovs-vsctl add-port br0 vxlan1 -- set interface vxlan1 type=vxlan options:remote_ip=10.255.0.3
     </exec>
     <exec seq="iperf3_brg2" type="verbatim">
-      sudo apt -y install iperf3
+      sudo apt -y install iperf3 --fix-missing
     </exec>
   </vm>
 </vnx>
