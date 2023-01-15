@@ -68,6 +68,9 @@ SPAIN
     <if id="1" net="Internet">
       <ipv4>10.100.3.2/24</ipv4>
     </if>
+    <exec seq="iperf3_s1" type="verbatim">
+      sudo apt -y install iperf3
+    </exec>
     <route type="ipv4" gw="10.100.3.1">default</route>
   </vm>
 </vnx>

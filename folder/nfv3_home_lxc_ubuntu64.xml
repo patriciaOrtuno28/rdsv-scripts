@@ -57,7 +57,7 @@ SPAIN
     <exec seq="retrieve_ip_h11" type="verbatim">
       ifconfig | grep 192.168.255
     </exec>
-    <exec seq="iperf_h11" type="verbatim">
+    <exec seq="iperf3_h11" type="verbatim">
       sudo apt -y install iperf3
     </exec>
     <route type="ipv4" gw="192.168.255.1">0.0.0.0/0</route>
@@ -78,6 +78,9 @@ SPAIN
     <exec seq="retrieve_ip_h12" type="verbatim">
       ifconfig | grep 192.168.255
     </exec>
+    <exec seq="iperf3_h12" type="verbatim">
+      sudo apt -y install iperf3
+    </exec>
     <route type="ipv4" gw="192.168.255.1">0.0.0.0/0</route>
   </vm> 
   <vm name="brg1" type="lxc" exec_mode="lxc-attach" arch="x86_64">
@@ -93,6 +96,9 @@ SPAIN
         ovs-vsctl add-br br0
         ovs-vsctl add-port br0 eth1
         ovs-vsctl add-port br0 vxlan1 -- set interface vxlan1 type=vxlan options:remote_ip=10.255.0.1
+    </exec>
+    <exec seq="iperf3_brg1" type="verbatim">
+      sudo apt -y install iperf3
     </exec>
   </vm>
   <vm name="h21" type="lxc" exec_mode="lxc-attach" arch="x86_64">
@@ -111,6 +117,9 @@ SPAIN
     <exec seq="retrieve_ip_h21" type="verbatim">
       ifconfig | grep 192.168.255
     </exec>
+    <exec seq="iperf3_h21" type="verbatim">
+      sudo apt -y install iperf3
+    </exec>
   </vm>   
   <vm name="h22" type="lxc" exec_mode="lxc-attach" arch="x86_64">
     <filesystem type="cow">/usr/share/vnx/filesystems/rootfs_lxc_ubuntu64</filesystem>
@@ -128,6 +137,9 @@ SPAIN
     <exec seq="retrieve_ip_h22" type="verbatim">
       ifconfig | grep 192.168.255
     </exec>
+    <exec seq="iperf3_h22" type="verbatim">
+      sudo apt -y install iperf3
+    </exec>
   </vm> 
   <vm name="brg2" type="lxc" exec_mode="lxc-attach" arch="x86_64">
     <filesystem type="cow">/usr/share/vnx/filesystems/rootfs_lxc_ubuntu64</filesystem>
@@ -142,6 +154,9 @@ SPAIN
         ovs-vsctl add-br br0
         ovs-vsctl add-port br0 eth1
         ovs-vsctl add-port br0 vxlan1 -- set interface vxlan1 type=vxlan options:remote_ip=10.255.0.3
+    </exec>
+    <exec seq="iperf3_brg2" type="verbatim">
+      sudo apt -y install iperf3
     </exec>
   </vm>
 </vnx>
