@@ -48,12 +48,18 @@ Con este fichero se automatiza la puesta en marcha de los servicios `renes1` y `
 ./osm/runRenes.sh
 ```
 
-### 3. Asegurarse de que las IPs se han definido ``` K8s ```
+### 3. Preparar equipos de la red residencial para su uso con QoS ``` K8s ```
 
 Con este fichero se automatiza la ejecución de `dhclient` en las hx1 y hx2 de las redes residenciales, para su posterior obtención:
 
 ```
 ./kubernetes/getIps.sh
+```
+
+Instalar iperf3 para realizar pruebas de prestaciones:
+
+```
+./kubernetes/installIperf3.sh
 ```
 
 > Se deben anotar para su posterior uso en el servicio OSM.
