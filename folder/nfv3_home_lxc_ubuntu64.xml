@@ -57,6 +57,9 @@ SPAIN
     <exec seq="retrieve_ip_h11" type="verbatim">
       ifconfig | grep 192.168.255
     </exec>
+    <exec seq="iperf_h11" type="verbatim">
+      sudo apt -y install iperf3
+    </exec>
     <route type="ipv4" gw="192.168.255.1">0.0.0.0/0</route>
   </vm>   
   <vm name="h12" type="lxc" exec_mode="lxc-attach" arch="x86_64">
