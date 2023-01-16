@@ -56,7 +56,7 @@ else
     # 12 Mbps como máximo para el enlace
     # Cola 0 - hx1 : mínimo 8 Mbps
     # Cola 1 - hx2 : máximo 4 Mbps
-    curl -X POST -d '{"port_name": "vxlanacc", "type": "linux-htb", "max_rate": "12000000", "queues": [{"min_rate": "8000000"}, {"max_rate": "4000000"}]}' http://localhost:8080/qos/queue/0000000000000001
+    curl -X POST -d '{"port_name": "vxlanint", "type": "linux-htb", "max_rate": "12000000", "queues": [{"min_rate": "8000000"}, {"max_rate": "4000000"}]}' http://localhost:8080/qos/queue/0000000000000001
 
     # Definir a que cola pertenece cada tráfico
     curl -X POST -d '{"match": {"nw_dst": '$hx1'}, "actions":{"queue": "0"}}' http://localhost:8080/qos/rules/0000000000000001
