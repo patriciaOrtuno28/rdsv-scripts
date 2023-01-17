@@ -21,7 +21,7 @@ RUN apt-get update \
     iperf3 \
     iproute2 \
     vim \
-    ryu-bin
+    ryu-bin 
 
 COPY vnx_config_nat /usr/bin/
 COPY isc-dhcp-server /etc/default/isc-dhcp-server

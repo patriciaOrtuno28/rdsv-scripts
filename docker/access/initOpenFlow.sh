@@ -39,7 +39,7 @@ else
 
     # Para ejecutar la aplicacion Ryu:
     echo "Ejecutando aplicacion Ryu qos_simple_switch_13.py ..."
-    ryu-manager ryu/ryu/app/rest_qos.py ryu/ryu/app/qos_simple_switch_13.py ryu/ryu/app/rest_conf_switch.py &
+    ryu-manager ryu/ryu/app/rest_qos.py ryu/ryu/app/qos_simple_switch_13.py ryu/ryu/app/rest_conf_switch.py > ryulogs.log &
 
     # Terminates the program (like Ctrl+C)
     PID=$!
