@@ -30,3 +30,6 @@ COPY dhcpd.conf /etc/dhcp/dhcpd.conf
 COPY README.txt .
 COPY initOpenFlow.sh .
 COPY ./ryu/ /ryu/
+
+RUN /usr/bin/vnx_config_nat brint net1
+RUN service isc-dhcp-server restart
