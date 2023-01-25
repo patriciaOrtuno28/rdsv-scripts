@@ -18,15 +18,15 @@ else
     pip install .
     cd ..
 
-    # Para activar OpenFlow version 1.3 en el bridge brint, porque sino se pone por defecto la v1.0:
-    echo "Definiendo version OpenFlow 1.3 ..."
-    ovs-vsctl set Bridge brint protocols=OpenFlow13
+    # Definir versiones OpenFlow
+    echo "Definiendo version OpenFlow 1.0, 1.1, 1.2, 1.3 ..."
+    ovs-vsctl set Bridge brint protocols=OpenFlow10,OpenFlow11,OpenFlow12,OpenFlow13
 
-    # Definir el puerto del manager de OpenFlow:
+    # Definir el puerto del manager y controlador de OpenFlow:
     echo "Definiendo propiedades del controller ..."
+    ovs-vsctl set bridge brint other-config:datapath-id=0000000000000001
     ovs-vsctl set-manager ptcp:6632
     ovs-vsctl set-controller brint tcp:127.0.0.1:6633
-    ovs-vsctl set bridge brint other-config:datapath-id=0000000000000001
 
     # Crear qos_simple_switch_13.py
     echo "Creando qos_simple_switch_13.py ..."
