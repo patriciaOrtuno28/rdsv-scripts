@@ -92,8 +92,3 @@ $CPE_EXEC /usr/bin/vnx_config_nat brint net1
 echo "## 7. En VNF:cpe activar arpwatch en la interfaz brint"
 $CPE_EXEC arpwatch -i brint -f brint.dat
 $CPE_EXEC etc/init.d/arpwatch start
-
-## 8. En VNF:access activar ISC-DHCP-SERVER
-echo "## 8. En VNF:access activar ISC-DHCP-SERVER"
-$ACC_EXEC service isc-dhcp-server restart
-sleep 10
