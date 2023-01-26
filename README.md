@@ -85,3 +85,21 @@ Con este fichero se asegura que los clientes de las redes residenciales tienen a
 ```
 ./osm/destroyRenes.sh
 ```
+
+### 5. Pruebas de iperf
+
+Para comprobar que las reglas de QoS se han aplicado correctamente deberemos ejecutar los siguientes comandos, utilizando las IPs obtenidas previamente para los equipos de la red residencial.
+
+>__Note__ Se debe acceder al pod CPE asociado a la instancia renes para esa red residencial. No se puede mezclar el pod CPE de renes2 con la máquina h11.
+
+##### hxy
+
+```
+iperf3 -s -i 1
+```
+
+##### KNF:cpe
+
+```
+iperf3 -c <ip> -b 12M -l 1200
+```
