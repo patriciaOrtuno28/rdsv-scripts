@@ -92,10 +92,10 @@ iperf3 -s -i 1
 iperf3 -c <ip> -b 12M -l 1200
 ```
 
-:heavy_plus_sign: **(Opcional)** Acceder a los pods: sustituir <type> por el tipo del pod al que se desee acceder {access, cpe}. Se accederá al primero instanciado de ellos. Si por el contrario se desea acceder a uno concreto se deberá seguir el procedimiento tradicional.
+:heavy_plus_sign: **(Opcional)** Acceder a los pods: sustituir `<type>` por el tipo del pod al que se desee acceder {access, cpe}, y `<renes_id>` por 1 o 2 según la instancia renes a la que se desee acceder.
 
 ```
-./osm/handlePods.sh -p <type>
+./osm/handlePods.sh -p <type> -r <renes_id>
 ```
 
 :warning: **(Opcional)** Destruir los servicios renes, sus pods y el onboarding asociado
