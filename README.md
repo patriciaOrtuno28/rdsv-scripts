@@ -74,7 +74,7 @@ Con este fichero se asegura que los clientes de las redes residenciales tienen a
 ./osm/configureOpenFlow.sh -a <h11> -b <h12> -c <h21> -d <h22>
 ```
 
-### 5. Pruebas de iperf
+### 5. Pruebas de QoS de bajada
 
 Para comprobar que las reglas de QoS se han aplicado correctamente deberemos ejecutar los siguientes comandos, utilizando las IPs obtenidas previamente para los equipos de la red residencial.
 
