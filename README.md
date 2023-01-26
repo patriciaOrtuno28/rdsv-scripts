@@ -74,18 +74,6 @@ Con este fichero se asegura que los clientes de las redes residenciales tienen a
 ./osm/configureOpenFlow.sh -a <h11> -b <h12> -c <h21> -d <h22>
 ```
 
-:heavy_plus_sign: **(Opcional)** Acceder a los pods: sustituir <type> por el tipo del pod al que se desee acceder {access, cpe}
-
-```
-./osm/handlePods.sh -p <type>
-```
-
-:warning: **(Opcional)** Destruir los servicios renes, sus pods y el onboarding asociado
-
-```
-./osm/destroyRenes.sh
-```
-
 ### 5. Pruebas de iperf
 
 Para comprobar que las reglas de QoS se han aplicado correctamente deberemos ejecutar los siguientes comandos, utilizando las IPs obtenidas previamente para los equipos de la red residencial.
@@ -102,4 +90,16 @@ iperf3 -s -i 1
 
 ```
 iperf3 -c <ip> -b 12M -l 1200
+```
+
+:heavy_plus_sign: **(Opcional)** Acceder a los pods: sustituir <type> por el tipo del pod al que se desee acceder {access, cpe}. Se accederá al primero instanciado de ellos. Si por el contrario se desea acceder a uno concreto se deberá seguir el procedimiento tradicional.
+
+```
+./osm/handlePods.sh -p <type>
+```
+
+:warning: **(Opcional)** Destruir los servicios renes, sus pods y el onboarding asociado
+
+```
+./osm/destroyRenes.sh
 ```
