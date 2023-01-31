@@ -20,12 +20,6 @@ Con este fichero se automatiza el arranque de las máquinas en K8s:
 ./kubernetes/initScenario.sh
 ```
 
-:warning: **(Opcional)** Destrucción de las máquinas del escenario en K8s
-
-```
-./kubernetes/stopScenario.sh
-```
-
 ### 2. Dar conectividad a las redes residenciales ``` OSM ```
 
 Con este fichero se automatiza la creación de la carpeta rdsv-final para la ejecución de esta práctica.
@@ -80,6 +74,12 @@ Para comprobar que las reglas de QoS se han aplicado correctamente deberemos eje
 
 >__Note__ Se debe acceder al pod CPE asociado a la instancia renes para esa red residencial. No se puede mezclar el pod CPE de renes2 con la máquina h11.
 
+:arrow_forward: **(Acceso POD)** Acceder a los pods: sustituir `<type>` por el tipo del pod al que se desee acceder {access, cpe}, y `<renes_id>` por 1 o 2 según la instancia renes a la que se desee acceder.
+
+```
+./osm/handlePods.sh -p <type> -r <renes_id>
+```
+
 ##### hxy
 
 ```
@@ -92,13 +92,41 @@ iperf3 -s -i 1
 iperf3 -c <ip> -b 12M -l 1200
 ```
 
-:heavy_plus_sign: **(Opcional)** Acceder a los pods: sustituir `<type>` por el tipo del pod al que se desee acceder {access, cpe}, y `<renes_id>` por 1 o 2 según la instancia renes a la que se desee acceder.
+### 6. Pruebas de QoS de subida
+
+Se proporciona un fichero adicional para probar el QoS de subida, para separar su funcionalidad del de bajada por motivos logísiticos de la entrega. En este caso se usan las direcciones MAC de los equipos de la red residencial por lo que no es necesario introducir las IPs previas. Así, se muestra otra opción de funcionamiento pero también podría hacerse con IPs.
+
+Comenzar ejecutando el siguiente comando para definir las reglas del tráfico:
 
 ```
-./osm/handlePods.sh -p <type> -r <renes_id>
+./osm/upQos.sh
 ```
 
-:warning: **(Opcional)** Destruir los servicios renes, sus pods y el onboarding asociado
+A continuación, ejecutar iperf3 para comprobar las prestaciones.
+
+>__Note__ Se debe acceder al pod CPE asociado a la instancia renes para esa red residencial. No se puede mezclar el pod CPE de renes2 con la máquina h11.
+
+##### KNF:cpe
+
+```
+iperf3 -s -i 1
+```
+
+##### hxy
+
+```
+iperf3 -c 192.168.255.1 -b 6M -l 1200
+```
+
+### 7. Destrucción del escenario y los servicios de red
+
+:warning: **(Opcional)** Destrucción de las máquinas del escenario en K8s
+
+```
+./kubernetes/stopScenario.sh
+```
+
+:warning: **(Opcional)** Destruir los servicios renes, sus pods y el onboarding asociado en OSM
 
 ```
 ./osm/destroyRenes.sh
