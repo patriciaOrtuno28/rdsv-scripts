@@ -107,22 +107,6 @@ SPAIN
         ovs-vsctl set bridge br0 other-config:datapath-id=0000000000000002
         ovs-vsctl set-manager ptcp:6632
         ovs-vsctl set-controller br0 tcp:10.255.0.1:6633
-
-        # KNF access -> brgX : 12 Mbps bajada
-        # brgX -> KNF access : 6 Mbps subida
-        # Definir la ruta del manager
-        curl -X PUT -d '"tcp:10.255.0.1:6632"' http://localhost:8080/v1.0/conf/switches/0000000000000002/ovsdb_addr
-        sleep 2
-
-        # Crear una cola con QoS
-        # 6 Mbps como máximo para el enlace
-        # Cola 0 - hx1 : máx 2 Mbps
-        # Cola 1 - hx2 : mín 4 Mbps
-        curl -X POST -d '{"port_name": "vxlan1", "type": "linux-htb", "max_rate": "6000000", "queues": [{"max_rate": "2000000"}, {"min_rate": "4000000"}]}' http://localhost:8080/qos/queue/0000000000000002
-
-        # Definir a que cola pertenece cada tráfico
-        curl -X POST -d '{"match": {"dl_src": "02:fd:00:04:01:01", "dl_type": "IPv4"}, "actions":{"queue": "0"}}' http://localhost:8080/qos/rules/0000000000000002
-        curl -X POST -d '{"match": {"dl_src": "02:fd:00:04:00:01", "dl_type": "IPv4"}, "actions":{"queue": "1"}}' http://localhost:8080/qos/rules/0000000000000002
     </exec>
   </vm>
   <vm name="h21" type="lxc" exec_mode="lxc-attach" arch="x86_64">
@@ -189,20 +173,6 @@ SPAIN
         ovs-vsctl set bridge br0 other-config:datapath-id=0000000000000002
         ovs-vsctl set-manager ptcp:6632
         ovs-vsctl set-controller br0 tcp:10.255.0.3:6633
-
-        # Definir la ruta del manager
-        curl -X PUT -d '"tcp:10.255.0.3:6632"' http://localhost:8080/v1.0/conf/switches/0000000000000002/ovsdb_addr
-        sleep 2
-
-        # Crear una cola con QoS
-        # 6 Mbps como máximo para el enlace
-        # Cola 0 - hx1 : máx 2 Mbps
-        # Cola 1 - hx2 : mín 4 Mbps
-        curl -X POST -d '{"port_name": "vxlan1", "type": "linux-htb", "max_rate": "6000000", "queues": [{"max_rate": "2000000"}, {"min_rate": "4000000"}]}' http://localhost:8080/qos/queue/0000000000000002
-
-        # Definir a que cola pertenece cada tráfico
-        curl -X POST -d '{"match": {"dl_src": "02:fd:00:04:03:01", "dl_type": "IPv4"}, "actions":{"queue": "0"}}' http://localhost:8080/qos/rules/0000000000000002
-        curl -X POST -d '{"match": {"dl_src": "02:fd:00:04:04:01", "dl_type": "IPv4"}, "actions":{"queue": "1"}}' http://localhost:8080/qos/rules/0000000000000002
     </exec>
   </vm>
 </vnx>
