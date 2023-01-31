@@ -78,10 +78,10 @@ El primero es ejecutar un ping a una IP desconocida desde un equipo de la red re
 ping -c3 192.168.255.32
 ```
 
-Entrar al POD KNF:access de renes1:
+Entrar al POD KNF:cpe de renes1:
 
 ```
-./osm/handlePods.sh -p access -r 1
+./osm/handlePods.sh -p cpe -r 1
 ```
 
 Dentro del mismo ejecutar el fichero automatizado que permite conocer el contenido de brint.dat con los pares mac/ip obtenidos:
