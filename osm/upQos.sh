@@ -52,7 +52,7 @@ $ACC_EXEC_1 curl -X POST -d '{"port_name": "vxlan1", "type": "linux-htb", "max_r
 $ACC_EXEC_1 curl -X POST -d '{"match": {"dl_src": "02:fd:00:04:01:01", "dl_type": "IPv4"}, "actions":{"queue": "0"}}' http://localhost:8080/qos/rules/0000000000000002
 $ACC_EXEC_1 curl -X POST -d '{"match": {"dl_src": "02:fd:00:04:00:01", "dl_type": "IPv4"}, "actions":{"queue": "1"}}' http://localhost:8080/qos/rules/0000000000000002
 
-
+echo "Definiendo QoS de subida para renes2 ..."
 # Definir la ruta del manager
 $ACC_EXEC_2 curl -X PUT -d '"tcp:10.255.0.4:6632"' http://localhost:8080/v1.0/conf/switches/0000000000000002/ovsdb_addr
 sleep 2
