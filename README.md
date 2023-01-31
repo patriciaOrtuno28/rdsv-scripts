@@ -68,7 +68,29 @@ Con este fichero se asegura que los clientes de las redes residenciales tienen a
 ./osm/configureOpenFlow.sh -a <h11> -b <h12> -c <h21> -d <h22>
 ```
 
-### 5. Pruebas de QoS de bajada
+### 5. Pruebas Arpwatch
+
+Para comprobar la funcionalidad de arpwatch se deben realizar 2 pasos. Se propone un ejemplo para un caso concreto.
+
+El primero es ejecutar un ping a una IP desconocida desde un equipo de la red residencial. Ya que DHCP otorga IPs en el rango 192.168.255.20 - 30, ejecutar el siguiente comando en h11:
+
+```
+ping -c3 192.168.255.32
+```
+
+Entrar al POD KNF:access de renes1:
+
+```
+./osm/handlePods.sh -p access -r 1
+```
+
+Dentro del mismo ejecutar el fichero automatizado que permite conocer el contenido de brint.dat con los pares mac/ip obtenidos:
+
+```
+./captureArp.sh
+```
+
+### 6. Pruebas de QoS de bajada
 
 Para comprobar que las reglas de QoS se han aplicado correctamente deberemos ejecutar los siguientes comandos, utilizando las IPs obtenidas previamente para los equipos de la red residencial.
 
@@ -92,7 +114,7 @@ iperf3 -s -i 1
 iperf3 -c <ip> -b 12M -l 1200
 ```
 
-### 6. Pruebas de QoS de subida
+### 7. Pruebas de QoS de subida
 
 Se proporciona un fichero adicional para probar el QoS de subida, para separar su funcionalidad del de bajada por motivos logísiticos de la entrega. En este caso se usan las direcciones MAC de los equipos de la red residencial por lo que no es necesario introducir las IPs previas. Así, se muestra otra opción de funcionamiento pero también podría hacerse con IPs.
 
@@ -118,7 +140,7 @@ iperf3 -s -i 1
 iperf3 -c 192.168.255.1 -b 6M -l 1200
 ```
 
-### 7. Destrucción del escenario y los servicios de red
+### 8. Destrucción del escenario y los servicios de red
 
 :warning: **(Opcional)** Destrucción de las máquinas del escenario en K8s
 
